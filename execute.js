@@ -1,5 +1,68 @@
 var parse = require('./lib/parser/parse');
 
+
+//---------------Структура синтаксического дерева-------------------------------
+// принимающую строку на вход и возвращающую объект, содержащий структуру данных 
+// для выражения с начала строки, вместе с частью строки, оставшейся после парсинга.
+// function parseExpression(program) {
+//   program = skipSpace(program);
+//   var match, expr;
+//   if (match = /^"([^"]*)"/.exec(program))
+//     expr = {type: "value", value: match[1]};
+//   else if (match = /^\d+\b/.exec(program))
+//     expr = {type: "value", value: Number(match[0])};
+//   else if (match = /^[^\s(),"]+/.exec(program))
+//     expr = {type: "word", name: match[0]};
+//   else
+//     throw new SyntaxError("Unexpected syntax: " + program);
+
+//   return parseApply(expr, program.slice(match[0].length));
+// }
+
+////////////////////////////////////////////////////////////////////////////////
+// function skipSpace(string) {
+//   var skippable = string.match(/^(\s|#.*)*/);
+//   return string.slice(skippable[0].length);
+// }
+
+////////////////////////////////////////////////////////////////////////////////
+//parseApply, определяющая, не является ли выражение приложением. 
+//Если так и есть, он парсит список аргументов в скобках.
+
+// function parseApply(expr, program) {
+//   program = skipSpace(program);
+//   if (program[0] != "(")
+//     return {expr: expr, rest: program};
+
+//   program = skipSpace(program.slice(1));
+//   expr = {type: "apply", operator: expr, args: []};
+//   while (program[0] != ")") {
+//     var arg = parseExpression(program);
+//     expr.args.push(arg.expr);
+//     program = skipSpace(arg.rest);
+//     if (program[0] == ",")
+//       program = skipSpace(program.slice(1));
+//     else if (program[0] != ")")
+//       throw new SyntaxError("Expected ',' or ')'");
+//   }
+//   return parseApply(expr, program.slice(1));
+// }
+////////////////////////////////////////////////////////////////////////////////
+/* 
+* функцию parse, проверяющую, что она дошла до конца строки после разбора 
+* выражения (программа Egg – это одно выражение), и это даст нам структуру 
+* данных программы.
+*/
+// function parse(program) {
+//   var result = parseExpression(program);
+//   if (skipSpace(result.rest).length > 0)
+//     throw new SyntaxError("Unexpected text after program");
+//   return result.expr;
+// }
+////////////////////////////////////////////////////////////////////////////////
+//console.log(parse("+(a, 10)"));
+////////////////////////////////////////////////////////////////////////////////
+
 //--------------------------------Интерпретатор---------------------------------
 function evaluate(expr, env) {
   switch(expr.type) {
