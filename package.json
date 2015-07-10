@@ -1,0 +1,24 @@
+{
+  "name": "A-Programming-Language",
+  "version": "1.0.0",
+  "description": "Project A-Programming-Language to testing on TDD/BDD technique",
+  "main": "execute.js",
+  "scripts": {
+    "test": "mocha test.js",
+    "test-in-browser": "beefy test.js"
+  },
+  "keywords": [
+    "test",
+    "bdd",
+    "utils",
+    "tdd",
+    "learn",
+    "study"
+  ],
+  "author": "bydens",
+  "license": "MIT",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.5"
+  }
+}

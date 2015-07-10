@@ -1,14 +1,14 @@
 var parse = require('./lib/parser/parse');
 
-console.log(parse("+(a, 10)"));
+// console.log(parse("+(a, 10)"));
 
 console.log(parse("# hello\nx"));
 // → {type: "word", name: "x"}
 
-console.log(parse("a # one\n   # two\n()"));
-// → {type: "apply",
-//    operator: {type: "word", name: "x"},
-//    args: []}
+// console.log(parse("a # one\n   # two\n()"));
+// // → {type: "apply",
+// //    operator: {type: "word", name: "x"},
+// //    args: []}
 
 
 var run = require('./lib/run');

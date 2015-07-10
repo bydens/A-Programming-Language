@@ -1,3 +1,4 @@
 AprogammingLanguage.sublime-project
 AprogammingLanguage.sublime-workspace
-/tmp
+tmp/
+node_modules/
